@@ -1,0 +1,15 @@
+DROP TABLE IF EXISTS timetable_of_classes CASCADE;
+DROP TABLE IF EXISTS competitions_users CASCADE;
+DROP TABLE IF EXISTS competitions CASCADE;
+DROP TABLE IF EXISTS individual_works CASCADE;
+DROP TABLE IF EXISTS additional_material CASCADE;
+DROP TABLE IF EXISTS topics_for_courses CASCADE;
+DROP TABLE IF EXISTS selected_sections CASCADE;
+DROP TABLE IF EXISTS list_of_selected_sections CASCADE;
+DROP TABLE IF EXISTS selected_courses CASCADE;
+DROP TABLE IF EXISTS list_of_selected_courses CASCADE;
+DROP TABLE IF EXISTS course_specification CASCADE;
+DROP TABLE IF EXISTS section_specification CASCADE;
+DROP TABLE IF EXISTS sections CASCADE;
+DROP TABLE IF EXISTS courses CASCADE;
+DROP TABLE IF EXISTS users CASCADE;
