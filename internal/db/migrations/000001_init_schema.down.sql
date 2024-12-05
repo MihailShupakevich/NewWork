@@ -1,3 +1,4 @@
+DROP TABLE IF EXISTS teachers CASCADE;
 DROP TABLE IF EXISTS timetable_of_classes CASCADE;
 DROP TABLE IF EXISTS competitions_users CASCADE;
 DROP TABLE IF EXISTS competitions CASCADE;
