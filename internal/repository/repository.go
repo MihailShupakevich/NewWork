@@ -57,16 +57,16 @@ func (r *Repository) AddCourse(course domain.Courses) (domain.Courses, error) {
 	return course, err
 }
 func (r *Repository) UpdateCourse(IntId int, updateDataCourse domain.Courses) (domain.Courses, error) {
-	r.db.Where("ID = ?", IntId).Updates(&updateDataCourse)
+	r.db.Where("course_id = ?", IntId).Updates(&updateDataCourse)
 	return updateDataCourse, nil
 }
 func (r *Repository) DeleteCourse(IntId int) (string, error) {
-	r.db.Where("ID = ?", IntId).Delete(&domain.Courses{})
+	r.db.Where("course_id = ?", IntId).Delete(&domain.Courses{})
 	return "Курс успешно удален", nil
 }
 func (r *Repository) GetCourse(IntId int) (domain.Courses, error) {
 	var course domain.Courses
-	r.db.First(&course, IntId)
+	r.db.Preload("CourseSpecification").First(&course, IntId)
 	return course, nil
 }
 func (r *Repository) AddCourseSpecification(courseSpecification domain.CourseSpecification) (domain.CourseSpecification, error) {
@@ -74,9 +74,12 @@ func (r *Repository) AddCourseSpecification(courseSpecification domain.CourseSpe
 	return courseSpecification, err
 }
 func (r *Repository) DeleteCourseSpecification(IntId int) (string, error) {
-
+	r.db.Where("course_specification_id = ?", IntId).Delete(&domain.CourseSpecification{})
+	return "Спецификация курса успешно удалена", nil
 }
 
 func (r *Repository) GetCourseSpecification(IntId int) (domain.CourseSpecification, error) {
-
+	var courseSpecification domain.CourseSpecification
+	r.db.First(&courseSpecification, IntId)
+	return courseSpecification, nil
 }

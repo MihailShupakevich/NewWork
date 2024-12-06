@@ -79,7 +79,7 @@ func (h *Handlers) AddCourse(c *gin.Context) {
 	err := c.BindJSON(&course)
 	newCourse, err := h.useCase.AddCourse(*course)
 	if err != nil {
-		c.JSON(400, gin.H{"error": "Не удается создать пользователя!"})
+		c.JSON(400, gin.H{"error": "Не удается создать курс!"})
 	}
 	c.JSON(200, gin.H{"newCourse": newCourse})
 }
@@ -100,9 +100,9 @@ func (h *Handlers) DeleteCourse(c *gin.Context) {
 	id := c.Param("id")
 	deleteCourse, err := h.useCase.DeleteCourse(id)
 	if err != nil {
-		c.JSON(401, gin.H{"Удаление пользователя-": "Не удалось удалить пользователя"})
+		c.JSON(401, gin.H{"Удаление курса-": "Не удалось удалить курс"})
 	}
-	c.JSON(200, gin.H{"Пользователь удален": deleteCourse})
+	c.JSON(200, gin.H{"Курс удален": deleteCourse})
 }
 
 func (h *Handlers) GetCourse(c *gin.Context) {
@@ -138,5 +138,5 @@ func (h *Handlers) GetCourseSpecification(c *gin.Context) {
 	if err != nil {
 		c.JSON(401, gin.Error{})
 	}
-	c.JSON(200, gin.H{"course": courseSpecification})
+	c.JSON(200, gin.H{"courseSpecification": courseSpecification})
 }

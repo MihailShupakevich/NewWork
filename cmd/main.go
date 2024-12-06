@@ -25,5 +25,14 @@ func main() {
 	router.PATCH("/users/:id", H.UpdateUser)
 	router.DELETE("/users/:id", H.DeleteUser)
 
+	router.GET("/course/:id", H.GetCourse)
+	router.POST("/course", H.AddCourse)
+	router.PATCH("/course/:id", H.UpdateCourse)
+	router.DELETE("/course/:id", H.DeleteCourse)
+
+	router.GET("/coursespecification/:id", H.GetCourseSpecification)
+	router.POST("/coursespecification", H.AddCourseSpecification)
+	router.DELETE("/coursespecification/:id", H.DeleteCourseSpecification)
+
 	router.Run(":8080")
 }
